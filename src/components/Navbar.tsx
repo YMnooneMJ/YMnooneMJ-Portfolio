@@ -27,6 +27,17 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
   const isActive = (path: string, section: string) =>
     location.pathname === path || (activeSection && activeSection === section);
 
+  // Scroll to hero section function with offset for fixed navbar
+  const scrollToHero = () => {
+    const heroElem = document.getElementById("hero");
+    if (heroElem) {
+      const navbarHeight = 120; // adjust this value as needed
+      const elementPosition = heroElem.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="sticky top-4 z-50 flex justify-center">
       <nav className="w-[96vw] max-w-6xl mx-auto rounded-full bg-white/80 dark:bg-gray-900/80 shadow-2xl backdrop-blur-lg border border-gray-200 dark:border-gray-800 flex items-center px-6 py-2 md:py-3 gap-4">
@@ -34,6 +45,7 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
         <Link
           to="/"
           className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800 mr-2"
+          onClick={() => scrollToHero()}
         >
           <FaGlobe className="w-7 h-7 text-gray-700 dark:text-gray-200" />
         </Link>
@@ -41,19 +53,33 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
         {/* Nav Links */}
         <div className="flex-1 flex justify-center">
           <div className="hidden md:flex gap-8">
-            {navlinks.map(({ path, label, section }) => (
-              <Link
-                key={path}
-                to={path}
-                className={`text-2xl font-bold transition-colors px-2 py-1 rounded-lg ${
-                  isActive(path, section)
-                    ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
-                    : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
-                }`}
-              >
-                {label}
-              </Link>
-            ))}
+            {navlinks.map(({ path, label, section }) =>
+              label === "Home" && location.pathname === "/" ? (
+                <button
+                  key={path}
+                  onClick={() => scrollToHero()}
+                  className={`text-2xl font-bold transition-colors px-2 py-1 rounded-lg ${
+                    isActive(path, section)
+                      ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
+                      : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
+                  }`}
+                >
+                  {label}
+                </button>
+              ) : (
+                <Link
+                  key={path}
+                  to={path}
+                  className={`text-2xl font-bold transition-colors px-2 py-1 rounded-lg ${
+                    isActive(path, section)
+                      ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
+                      : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
+                  }`}
+                >
+                  {label}
+                </Link>
+              )
+            )}
           </div>
         </div>
 
@@ -99,20 +125,37 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
             transition={{ duration: 0.3 }}
             className="fixed top-20 left-1/2 -translate-x-1/2 w-[90vw] max-w-xl z-50 rounded-3xl bg-white/90 dark:bg-gray-900/90 shadow-2xl px-6 py-6 flex flex-col items-center gap-6 text-2xl font-bold"
           >
-            {navlinks.map(({ path, label, section }) => (
-              <Link
-                key={path}
-                to={path}
-                onClick={() => setMenuOpen(false)}
-                className={`transition-colors px-2 py-1 rounded-lg ${
-                  isActive(path, section)
-                    ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
-                    : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
-                }`}
-              >
-                {label}
-              </Link>
-            ))}
+            {navlinks.map(({ path, label, section }) =>
+              label === "Home" && location.pathname === "/" ? (
+                <button
+                  key={path}
+                  onClick={() => {
+                    scrollToHero();
+                    setMenuOpen(false);
+                  }}
+                  className={`transition-colors px-2 py-1 rounded-lg ${
+                    isActive(path, section)
+                      ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
+                      : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
+                  }`}
+                >
+                  {label}
+                </button>
+              ) : (
+                <Link
+                  key={path}
+                  to={path}
+                  onClick={() => setMenuOpen(false)}
+                  className={`transition-colors px-2 py-1 rounded-lg ${
+                    isActive(path, section)
+                      ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
+                      : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
+                  }`}
+                >
+                  {label}
+                </Link>
+              )
+            )}
             <a
               href="mailto:demraldo@gmail.com"
               target="_blank"

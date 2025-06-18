@@ -22,7 +22,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center bg-white/80 dark:bg-gray-800 rounded-3xl shadow-lg p-8">
           <div className="space-y-6">
             <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
-              I was going to be a professional footballer but... I'm a
+              I was going to be a professional footballer but 🥱... I'm a
               passionate full-stack developer with over 2 years of experience
               building web applications that solve real-world problems. I love
               working with modern technologies and I am always eager to learn

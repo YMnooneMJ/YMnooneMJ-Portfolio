@@ -46,10 +46,12 @@ const Footer: React.FC = () => {
             </motion.a>
           ))}
         </div>
+
         {/* Copyright */}
         <p className="text-base font-semibold text-center text-gray-900 dark:text-gray-400">
-          © 2025 ᵞᴹNøŌneᴹᴶ . All rights reserved.
+          Copyright ©2025 ᵞᴹNøŌneᴹᴶ. All Rights Reserved.
         </p>
+
         {/* Credit */}
         <p className="text-sm text-gray-600 dark:text-gray-400 text-center flex items-center gap-1">
           Built with love by{" "}

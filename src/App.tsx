@@ -13,7 +13,7 @@ const App = () => {
     <div
       className={
         darkMode
-          ? "dark bg-gray-950 text-white min-h-screen relative"
+          ? "dark bg-gray-950 text-white min-h-screen\ relative"
           : "bg-white text-gray-900 min-h-screen relative"
       }
     >

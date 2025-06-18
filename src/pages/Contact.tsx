@@ -56,6 +56,15 @@ const Contact = () => {
     setSubmitted(true);
   };
 
+  
+  const { name, email, message } = formData;
+  const subject = encodeURIComponent('Contact Form Submission');
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+
+  if (submitted) {
+    window.location.href = `mailto:demraldo@gmail.com?subject=${subject}&body=${body}`;
+  }
+
   return (
     <div className="py-20 px-2 sm:px-4 bg-gradient-to-br from-gray-100 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 min-h-screen flex items-center">
       <motion.section
@@ -69,7 +78,9 @@ const Contact = () => {
         {/* Contact Info */}
         <div className="md:w-1/2 flex flex-col justify-center">
           <h2 className="text-4xl font-extrabold mb-8 bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent text-left drop-shadow-lg">
-            Let's talk on your next <span className="text-blue-500 dark:text-blue-300">project</span> together
+            Let's talk on your next{" "}
+            <span className="text-blue-500 dark:text-blue-300">project</span>{" "}
+            together
           </h2>
           <div className="flex flex-col gap-6">
             {contactMethods.map((method) => (
@@ -86,7 +97,9 @@ const Contact = () => {
                     <div className="text-lg font-semibold text-gray-900 dark:text-white">
                       {method.label}
                     </div>
-                    <div className="text-gray-600 dark:text-gray-300 text-sm">{method.value}</div>
+                    <div className="text-gray-600 dark:text-gray-300 text-sm">
+                      {method.value}
+                    </div>
                   </div>
                 </div>
                 <a
@@ -101,13 +114,14 @@ const Contact = () => {
               </div>
             ))}
           </div>
+
           {/* Socials */}
           <div className="flex gap-4 mt-10 justify-start">
             <a
               href="https://github.com/YMnooneMJ"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-gray-800 hover:bg-gray-700 p-3 text-white shadow transition"
+              className="rounded-full bg-gray-800 hover:bg-blue-700 p-3 text-white shadow transition"
             >
               <svg
                 width="22"
@@ -150,7 +164,12 @@ const Contact = () => {
             Contact Me
           </h2>
           {!submitted ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              action="mailto:demraldo@gmail.com"
+              encType="text/plain"
+              className="space-y-6"
+            >
               <label className="block">
                 <span className="text-gray-700 dark:text-gray-300 font-medium">
                   Your full name
@@ -166,7 +185,9 @@ const Contact = () => {
                 />
               </label>
               <label className="block">
-                <span className="text-gray-700 dark:text-gray-300 font-medium">Your email</span>
+                <span className="text-gray-700 dark:text-gray-300 font-medium">
+                  Your email
+                </span>
                 <input
                   type="email"
                   name="email"
@@ -178,7 +199,9 @@ const Contact = () => {
                 />
               </label>
               <label className="block">
-                <span className="text-gray-700 dark:text-gray-300 font-medium">Your message</span>
+                <span className="text-gray-700 dark:text-gray-300 font-medium">
+                  Your message
+                </span>
                 <textarea
                   name="message"
                   required

@@ -47,6 +47,7 @@ const Home = () => {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
+  
 
   // Section wrapper with highlight for active
   const Section = ({
@@ -77,7 +78,7 @@ const Home = () => {
   );
 
   return (
-    <div id="hero" className="min-h-screen">
+    <div id="home" className="min-h-screen ">
       {/* HERO SECTION */}
       <div id="hero" className="py-12">
         <motion.section
@@ -91,7 +92,7 @@ const Home = () => {
             Hi <span className="text-white/90">👋</span>, I'm{" "}
             <span className="text-blue-800 font-bold">
               <Typewriter
-                words={["Yusuf", "Ademola", "NoOne"]}
+                words={["Ademola", "Yusuf", "NoOne"]}
                 loop={5}
                 cursor
                 cursorStyle="_"
@@ -132,25 +133,25 @@ const Home = () => {
           <div className="flex justify-center space-x-6 pt-8">
             <a
               href="https://github.com/YMnooneMJ"
-              className="p-3 rounded-full transition-colors"
+              className="p-3 rounded-full  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
             >
               <FaGithub size={24} />
             </a>
             <a
               href="https://www.linkedin.com/in/ademola-adeyemo-ba13b7348/"
-              className="p-3 rounded-full transition-colors"
+              className="p-3 rounded-full  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
             >
               <FaLinkedin size={24} />
             </a>
             <a
               href="https://x.com/YMnooneMJ"
-              className="p-3 rounded-full transition-colors"
+              className="p-3 rounded-full  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
             >
               <FaXTwitter size={24} />
             </a>
             <a
               href="mailto:demraldo@gmail.com"
-              className="p-3 rounded-full transition-colors"
+              className="p-3 rounded-full  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
             >
               <MdEmail size={24} />
             </a>
@@ -159,7 +160,7 @@ const Home = () => {
             <div className="animate-bounce flex items-center justify-center">
               <FaChevronDown
                 size={32}
-                className="text-gray-900 dark:text-gray-300"
+                className="text-gray-900 dark:text-gray-300 "
               />
             </div>
           </div>
