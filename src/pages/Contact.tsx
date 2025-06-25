@@ -56,10 +56,11 @@ const Contact = () => {
     setSubmitted(true);
   };
 
-  
   const { name, email, message } = formData;
-  const subject = encodeURIComponent('Contact Form Submission');
-  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+  const subject = encodeURIComponent("Contact Form Submission");
+  const body = encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+  );
 
   if (submitted) {
     window.location.href = `mailto:demraldo@gmail.com?subject=${subject}&body=${body}`;

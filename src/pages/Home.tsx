@@ -8,6 +8,7 @@ import Skills from "../components/Skills";
 import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
+import { useLocation } from "react-router-dom";
 
 const handleType = (count: number) => {
   console.log(count);
@@ -47,7 +48,24 @@ const Home = () => {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
-  
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get("scrollToHero") === "true") {
+      setTimeout(() => {
+        const heroElem = document.getElementById("hero");
+        const navbarHeight = 120; // To match your Navbar offset
+        if (heroElem) {
+          const elementPosition =
+            heroElem.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - navbarHeight;
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        }
+      }, 100); // slight delay to ensure DOM is ready
+    }
+  }, [location.search]);
 
   // Section wrapper with highlight for active
   const Section = ({

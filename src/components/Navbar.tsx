@@ -32,7 +32,8 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
     const heroElem = document.getElementById("hero");
     if (heroElem) {
       const navbarHeight = 120; // adjust this value as needed
-      const elementPosition = heroElem.getBoundingClientRect().top + window.pageYOffset;
+      const elementPosition =
+        heroElem.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
       window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
@@ -43,7 +44,7 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
       <nav className="w-[96vw] max-w-6xl mx-auto rounded-full bg-white/80 dark:bg-gray-900/80 shadow-2xl backdrop-blur-lg border border-gray-200 dark:border-gray-800 flex items-center px-6 py-2 md:py-3 gap-4">
         {/* Logo */}
         <Link
-          to="/"
+            to={{ pathname: "/", search: "?scrollToHero=true" }}
           className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800 mr-2"
           onClick={() => scrollToHero()}
         >
@@ -70,6 +71,7 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
                 <Link
                   key={path}
                   to={path}
+                  onClick={() => setMenuOpen(false)}
                   className={`text-2xl font-bold transition-colors px-2 py-1 rounded-lg ${
                     isActive(path, section)
                       ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
