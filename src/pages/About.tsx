@@ -23,7 +23,7 @@ const About = () => {
           <div className="space-y-6">
             <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
               I was going to be a professional footballer but 🥱... I'm a
-              passionate full-stack developer with over 2 years of experience
+              passionate full-stack developer with 6 months of experience
               building web applications that solve real-world problems. I love
               working with modern technologies and I am always eager to learn
               new tools and frameworks.
