@@ -56,7 +56,7 @@ const Home = () => {
     if (params.get("scrollToHero") === "true") {
       setTimeout(() => {
         const heroElem = document.getElementById("hero");
-        const navbarHeight = 120; // To match your Navbar offset
+        const navbarHeight = 120; // To match Navbar offset
         if (heroElem) {
           const elementPosition =
             heroElem.getBoundingClientRect().top + window.pageYOffset;
