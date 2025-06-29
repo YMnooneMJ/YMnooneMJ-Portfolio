@@ -4,7 +4,6 @@ import ThemeToggle from "./ThemeToggle";
 import { useState } from "react";
 import { IoCloseSharp, IoMenu } from "react-icons/io5";
 import { FiExternalLink } from "react-icons/fi";
-import { FaGlobe } from "react-icons/fa";
 
 interface NavbarProps {
   darkMode: boolean;
@@ -19,6 +18,7 @@ const navlinks = [
   { path: "/projects", label: "Projects", section: "projects" },
   { path: "/contact", label: "Contact", section: "contact" },
 ];
+// ...existing imports...
 
 const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,73 +40,21 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
   };
 
   return (
-    <header className="sticky top-4 z-50 flex justify-center">
-      <nav className="w-[96vw] max-w-6xl mx-auto rounded-full bg-white/80 dark:bg-gray-900/80 shadow-2xl backdrop-blur-lg border border-gray-200 dark:border-gray-800 flex items-center px-6 py-2 md:py-3 gap-4">
-        {/* Logo */}
-        <Link
-            to={{ pathname: "/", search: "?scrollToHero=true" }}
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800 mr-2"
-          onClick={() => scrollToHero()}
-        >
-          <FaGlobe className="w-7 h-7 text-gray-700 dark:text-gray-200" />
-        </Link>
-
-        {/* Nav Links */}
-        <div className="flex-1 flex justify-center">
-          <div className="hidden md:flex gap-8">
-            {navlinks.map(({ path, label, section }) =>
-              label === "Home" && location.pathname === "/" ? (
-                <button
-                  key={path}
-                  onClick={() => scrollToHero()}
-                  className={`text-2xl font-bold transition-colors px-2 py-1 rounded-lg ${
-                    isActive(path, section)
-                      ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
-                      : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
-                  }`}
-                >
-                  {label}
-                </button>
-              ) : (
-                <Link
-                  key={path}
-                  to={path}
-                  onClick={() => setMenuOpen(false)}
-                  className={`text-2xl font-bold transition-colors px-2 py-1 rounded-lg ${
-                    isActive(path, section)
-                      ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
-                      : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
-                  }`}
-                >
-                  {label}
-                </Link>
-              )
-            )}
-          </div>
-        </div>
-
-        {/* Hire Me Button */}
-        <a
-          href="mailto:demraldo@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-5 py-2 rounded-2xl shadow transition-all"
-        >
-          Hire Me <FiExternalLink className="w-5 h-5" />
-        </a>
-
-        {/* Theme Toggle */}
-        <div className="hidden md:flex items-center ml-4">
-          <ThemeToggle darkmode={darkMode} toggleDarkMode={toggleDarkMode} />
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden ml-auto">
+    <header className="sticky top-0 md:top-4 z-50 flex justify-center">
+      <div className="relative w-full md:w-[96vw] md:max-w-6xl mx-auto">
+        {/* Mobile: Hire Me & Menu Button */}
+        <div className="flex md:hidden items-center absolute right-2 top-1/2 -translate-y-1/2 z-20 gap-2">
+          <Link
+            to={{ pathname: "/", search: "?scrollToContact=true" }}
+            className="flex items-center gap-2 bg-gray-900 hover:bg-blue-600 text-white font-bold px-3 py-2 rounded-2xl shadow transition-all"
+          >
+            Hire Me <FiExternalLink className="w-5 h-5 select-none" />
+          </Link>
           <motion.button
             onClick={() => setMenuOpen(!menuOpen)}
             whileHover={{ scale: 1.2, rotate: 10 }}
             whileTap={{ scale: 0.9 }}
-            className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800"
+            className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600"
           >
             {menuOpen ? (
               <IoCloseSharp className="w-7 h-7" />
@@ -115,8 +63,64 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
             )}
           </motion.button>
         </div>
-      </nav>
-
+        <nav className="w-full md:w-[96vw] md:max-w-6xl mx-auto md:rounded-full bg-white/80 dark:bg-gray-900/80 shadow-2xl backdrop-blur-md backdrop-opacity-90 border border-gray-200 dark:border-gray-800 flex items-center px-6 py-2 md:py-3 gap-4">
+          {/* Logo */}
+          <Link
+            to={{ pathname: "/", search: "?scrollToHero=true" }}
+            className="flex items-center justify-center py-3 rounded-full bg-white/70 dark:bg-gray-900/70 border border-gray-900 dark:border-gray-900 shadow-lg backdrop-blur-xl backdrop-opacity-90 hover:shadow-xl transition-all duration-300 mr-2"
+            onClick={() => scrollToHero()}
+            style={{ minWidth: 120 }}
+          >
+            <h3 className="bg-clip-text bg-gradient-to-r from-gray-950 via-black/90 to-white/90 text-transparent font-extrabold tracking-wide select-none drop-shadow-sm">
+              ᵞᴹNøŌneᴹᴶ
+            </h3>
+          </Link>
+          {/* Nav Links (hidden on mobile) */}
+          <div className="flex-1 flex justify-center">
+            <div className="hidden md:flex gap-8">
+              {navlinks.map(({ path, label, section }) =>
+                label === "Home" && location.pathname === "/" ? (
+                  <button
+                    key={path}
+                    onClick={() => scrollToHero()}
+                    className={`text-2xl font-bold transition-colors px-2 py-1 rounded-lg ${
+                      isActive(path, section)
+                        ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
+                        : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ) : (
+                  <Link
+                    key={path}
+                    to={path}
+                    onClick={() => setMenuOpen(false)}
+                    className={`text-2xl font-bold transition-colors px-2 py-1 rounded-lg ${
+                      isActive(path, section)
+                        ? "text-blue-600 dark:text-blue-400 underline underline-offset-8"
+                        : "text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                )
+              )}
+            </div>
+          </div>
+          {/* Desktop Hire Me */}
+          <Link
+            to={{ pathname: "/", search: "?scrollToContact=true" }}
+            className="hidden md:flex items-center gap-2 bg-gray-900 hover:bg-blue-600 text-white font-bold text-lg px-5 py-2 rounded-xl shadow transition-all"
+          >
+            Hire Me <FiExternalLink className="w-5 h-5 select-none" />
+          </Link>
+          {/* Theme Toggle (desktop only) */}
+          <div className="hidden md:flex items-center ml-4">
+            <ThemeToggle darkmode={darkMode} toggleDarkMode={toggleDarkMode} />
+          </div>
+        </nav>
+      </div>
       {/* Mobile Nav Dropdown */}
       <AnimatePresence>
         {menuOpen && (
@@ -132,8 +136,10 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
                 <button
                   key={path}
                   onClick={() => {
-                    scrollToHero();
                     setMenuOpen(false);
+                    setTimeout(() => {
+                      scrollToHero();
+                    }, 100); // Delay to ensure menu closes before scrolling
                   }}
                   className={`transition-colors px-2 py-1 rounded-lg ${
                     isActive(path, section)
@@ -158,14 +164,6 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
                 </Link>
               )
             )}
-            <a
-              href="mailto:demraldo@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-5 py-2 rounded-2xl shadow transition-all"
-            >
-              Hire Me <FiExternalLink className="w-5 h-5" />
-            </a>
             <ThemeToggle darkmode={darkMode} toggleDarkMode={toggleDarkMode} />
           </motion.nav>
         )}

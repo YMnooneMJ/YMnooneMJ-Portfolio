@@ -51,6 +51,7 @@ const Home = () => {
 
   const location = useLocation();
 
+  // Scroll to hero section if scrollToHero is true in URL params
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     if (params.get("scrollToHero") === "true") {
@@ -60,6 +61,20 @@ const Home = () => {
         if (heroElem) {
           const elementPosition =
             heroElem.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - navbarHeight;
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        }
+      }, 100); // slight delay to ensure DOM is ready
+    }
+
+    // Check if scrollToConttact is true in URL parram
+    if (params.get("scrollToContact") === "true") {
+      setTimeout(() => {
+        const contactElem = document.getElementById("contact");
+        const navbarHeight = 120; // To match Navbar offset
+        if (contactElem) {
+          const elementPosition =
+            contactElem.getBoundingClientRect().top + window.pageYOffset;
           const offsetPosition = elementPosition - navbarHeight;
           window.scrollTo({ top: offsetPosition, behavior: "smooth" });
         }
@@ -147,6 +162,16 @@ const Home = () => {
             >
               Get In Touch
             </button>
+          </div>
+          <div className="flex justify-center mt-2">
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-all font-semibold text-blue-600 dark:text-blue-400"
+            >
+              See My Resume
+            </a>
           </div>
           <div className="flex justify-center space-x-6 pt-8">
             <a

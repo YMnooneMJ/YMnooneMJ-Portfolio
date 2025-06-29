@@ -53,17 +53,17 @@ const Footer: React.FC = () => {
         </p>
 
         {/* Credit */}
-        <p className="text-sm text-gray-600 dark:text-gray-400 text-center flex items-center gap-1">
+        <p className="font-medium text-gray-600 dark:text-gray-400 text-center flex items-center gap-1">
           Built with love by{" "}
           <span className="font-semibold text-gray-900 dark:text-gray-600">
             Ademola Yusuf
           </span>
-          <span className="text-pink-500 text-lg">❤</span>
+          <span className="text-lg">❤</span>
         </p>
       </div>
       <div className="w-full flex justify-center items-center py-8 bg-transparent">
         <h1
-          className="text-[7vw] font-extrabold bg-gradient-to-r from-purple-800 via-fuchsia-700 to-gray-500 bg-clip-text text-transparent select-none"
+          className="text-[7vw] font-extrabold bg-gradient-to-r from-blue-800 via-gray-600 to-red-400 bg-clip-text text-transparent select-none"
           style={{ lineHeight: 1 }}
         >
           Ademola Yusuf
