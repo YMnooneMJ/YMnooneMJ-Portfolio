@@ -66,7 +66,7 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
         <nav className="w-full md:w-[96vw] md:max-w-6xl mx-auto md:rounded-full bg-white/80 dark:bg-gray-900/80 shadow-2xl backdrop-blur-md backdrop-opacity-90 border border-gray-200 dark:border-gray-800 flex items-center px-6 py-2 md:py-3 gap-4">
           {/* Logo */}
           <Link
-            to={{ pathname: "/", search: "?scrollToHero=true" }}
+            to={{ pathname: "/" }}
             className="flex items-center justify-center py-3 rounded-full bg-white/70 dark:bg-gray-900/70 border border-gray-900 dark:border-gray-900 shadow-lg backdrop-blur-xl backdrop-opacity-90 hover:shadow-xl transition-all duration-300 mr-2"
             onClick={() => scrollToHero()}
             style={{ minWidth: 120 }}
