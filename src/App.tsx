@@ -3,8 +3,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import FloatingParticles from "./components/FloatingParticles";
 import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
-
+import ScrollToTop from "./components/SCrollToTOp";
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
 
