@@ -37,7 +37,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className="py-20 px-4 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
+    <div className="py-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50 to-green-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
       <motion.section
         id="skills"
         initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ const Skills = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="max-w-6xl mx-auto"
       >
-        <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg">
+        <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 via-indigo-100 to-pink-400 bg-clip-text text-transparent drop-shadow-lg">
           Skills & Technologies
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">

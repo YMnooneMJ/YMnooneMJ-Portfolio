@@ -4,7 +4,7 @@ import { Typewriter } from "react-simple-typewriter";
 import { FaChevronDown, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import Skills from "../components/Skills";
+import Skills from "./Skills";
 import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";

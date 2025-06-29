@@ -6,7 +6,7 @@ import Home from "./pages/Home.tsx";
 import Projects from "./pages/Projects.tsx";
 import Contact from "./pages/Contact.tsx";
 import About from "./pages/About.tsx";
-import Skills from "./components/Skills.tsx";
+import Skills from "./pages/Skills.tsx";
 
 const router = createBrowserRouter([
   {
