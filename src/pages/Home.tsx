@@ -165,7 +165,7 @@ const Home = () => {
           </div>
           <div className="flex justify-center mt-2">
             <a
-              href=""
+              href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-all font-semibold text-blue-600 dark:text-blue-400"
