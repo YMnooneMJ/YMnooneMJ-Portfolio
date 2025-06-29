@@ -35,8 +35,7 @@ const Footer: React.FC = () => {
             <motion.a
               key={s.label}
               href={s.href}
-              target={s.href.startsWith("mailto") ? undefined : "_blank"}
-              rel="noopener noreferrer"
+              target={s.href.startsWith("mailto") ? undefined : ""}
               whileHover={{ scale: 1.15, rotate: i % 2 === 0 ? 5 : -5 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center justify-center w-11 h-11 rounded-full bg-gray-200/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-200 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"

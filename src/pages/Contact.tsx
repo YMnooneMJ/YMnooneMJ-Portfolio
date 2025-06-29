@@ -105,8 +105,6 @@ const Contact = () => {
                 </div>
                 <a
                   href={method.action}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500 hover:bg-blue-600 transition text-white font-semibold shadow"
                 >
                   {method.actionIcon}
@@ -120,8 +118,6 @@ const Contact = () => {
           <div className="flex gap-4 mt-10 justify-start">
             <a
               href="https://github.com/YMnooneMJ"
-              target="_blank"
-              rel="noopener noreferrer"
               className="rounded-full bg-gray-800 hover:bg-blue-700 p-3 text-white shadow transition"
             >
               <svg
@@ -135,8 +131,6 @@ const Contact = () => {
             </a>
             <a
               href="https://linkedin.com/in/ademola-adeyemo-ba13b7348/"
-              target="_blank"
-              rel="noopener noreferrer"
               className="rounded-full bg-gray-800 hover:bg-blue-700 p-3 text-white shadow transition"
             >
               <svg
@@ -150,8 +144,6 @@ const Contact = () => {
             </a>
             <a
               href="https://x.com/YMnooneMJ"
-              target="_blank"
-              rel="noopener noreferrer"
               className="rounded-full bg-gray-800 hover:bg-blue-500 p-3 text-white shadow transition"
             >
               <FaSquareXTwitter size={22} />
