@@ -193,7 +193,7 @@ const Home = () => {
               <FaXTwitter size={24} />
             </a>
             <a
-              href="mailto:demraldo@gmail.com"
+              href="mailto:ademolayusuf1349@gmail.com"
               className="p-3 rounded-full  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
             >
               <MdEmail size={24} />

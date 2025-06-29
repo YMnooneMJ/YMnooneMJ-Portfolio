@@ -7,9 +7,9 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 const contactMethods = [
   {
     label: "Email",
-    value: "demraldo@gmail.com",
+    value: "ademolayusuf1349@gmail.com",
     icon: <IoMdMailUnread className="text-blue-400" size={28} />,
-    action: "mailto:demraldo@gmail.com",
+    action: "mailto:ademolayusuf1349@gmail.com",
     actionLabel: "Message",
     actionIcon: <IoMdMailUnread className="text-white" size={18} />,
     border: "border-blue-400",
@@ -63,7 +63,7 @@ const Contact = () => {
   );
 
   if (submitted) {
-    window.location.href = `mailto:demraldo@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:ademolayusuf1349@gmail.com?subject=${subject}&body=${body}`;
   }
 
   return (
@@ -159,7 +159,7 @@ const Contact = () => {
           {!submitted ? (
             <form
               onSubmit={handleSubmit}
-              action="mailto:demraldo@gmail.com"
+              action="mailto:ademolayusuf1349@gmail.com"
               encType="text/plain"
               className="space-y-6"
             >

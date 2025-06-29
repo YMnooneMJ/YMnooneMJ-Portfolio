@@ -14,7 +14,7 @@ const socials = [
     label: "LinkedIn",
   },
   {
-    href: "mailto:demraldo@gmail.com",
+    href: "mailto:ademolayusuf1349@gmail.com",
     icon: <FaMailBulk className="w-5 h-5" />,
     label: "Email",
   },
