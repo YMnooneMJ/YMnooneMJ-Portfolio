@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
           <span className="font-semibold text-gray-900 dark:text-gray-600">
             Ademola Yusuf
           </span>
-          <span className="text-lg">❤</span>
+          <span className="text-lg text-red-600">❤</span>
         </p>
       </div>
       <div className="w-full flex justify-center items-center py-8 bg-transparent">

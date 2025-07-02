@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 const projects = [
   {
     title: "Blog Website",
-    description: "A blog website built with React, Tailwind CSS, and more.",
-    tech: ["React", "JavaScript", "TailwindCSS"],
+    description:
+      "A modern blog platform featuring responsive design, dynamic content management, and seamless user experience. Built with React and Tailwind CSS for fast performance and clean aesthetics.",
+    tech: ["React", "TypeScript", "TailwindCSS", "Vite"],
     url: "https://react-blog-ivory-one.vercel.app/",
     image:
       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
@@ -12,8 +13,8 @@ const projects = [
   {
     title: "Weather App",
     description:
-      "Responsive weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-    tech: ["React", "JavaScript", "API Integration", "TailwindCSS"],
+      "A real-time weather dashboard providing location-based forecasts, interactive maps, and detailed analytics. Utilizes external APIs and responsive layouts for accessibility on any device.",
+    tech: ["React", "TypeScript", "OpenWeatherMap API", "TailwindCSS"],
     url: "https://weather-application-six-ashy.vercel.app/",
     image:
       "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=250&fit=crop",
@@ -21,8 +22,8 @@ const projects = [
   {
     title: "Advice Generator App",
     description:
-      "An advice generator built with React, Tailwind CSS, API, and more.",
-    tech: ["React", "JavaScript", "API Integration", "TailwindCSS"],
+      "An interactive app that fetches and displays random advice using a public API. Features a clean UI, smooth animations, and instant content refresh for an engaging user experience.",
+    tech: ["React", "TypeScript", "Advice Slip API", "Framer Motion", "TailwindCSS"],
     url: "https://advice-generator-app-three-snowy.vercel.app/",
     image:
       "https://images.unsplash.com/photo-1721369697938-eef8d5efccb9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGFkdmljZSUyMGdlbmVyYXRvcnxlbnwwfHwwfHx8MA%3D%3D",
@@ -30,8 +31,8 @@ const projects = [
   {
     title: "FashionFusion",
     description:
-      "A responsive shorping website built with, HTML, Bootstrap, Javascript and more.",
-    tech: ["HTML", "JavaScript", "Bootstrap"],
+      "A stylish and responsive e-commerce website for fashion products. Built with HTML, Bootstrap, and JavaScript, it features a dynamic shopping cart and intuitive product browsing.",
+    tech: ["HTML", "JavaScript", "Bootstrap", "LocalStorage"],
     url: "https://workshop-dom-shopping-cart.vercel.app/",
     image:
       "https://images.unsplash.com/photo-1603798125914-7b5d27789248?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmFzaGlvbiUyMHN0b3JlfGVufDB8fDB8fHww",
