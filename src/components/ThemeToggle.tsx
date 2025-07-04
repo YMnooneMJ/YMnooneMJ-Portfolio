@@ -22,9 +22,9 @@ const ThemeToggle = ({ darkmode, toggleDarkMode }: ThemeToggleProps) => {
       `}
     >
       {darkmode ? (
-        <MdOutlineFlashlightOn className="w-6 h-6 text-gray-600 transition-colors duration-200" />
+        <MdOutlineFlashlightOn className="w-6 h-6 text-gray-600 transition-colors duration-300" />
       ) : (
-        <CgDarkMode className="w-6 h-6 text-gray-900 dark:text-gray-300 transition-colors duration-200" />
+        <CgDarkMode className="w-6 h-6 text-gray-900 dark:text-gray-300 transition-colors duration-300" />
       )}
     </button>
   );

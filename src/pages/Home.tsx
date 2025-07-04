@@ -64,11 +64,19 @@ const Home = () => {
           const offsetPosition = elementPosition - navbarHeight;
           window.scrollTo({ top: offsetPosition, behavior: "smooth" });
         }
+        // Remove scrollToContact from URL after scrolling
+        const url = new URL(window.location.href);
+        url.searchParams.delete("scrollToContact");
+        window.history.replaceState(
+          {},
+          document.title,
+          url.pathname + url.search
+        );
       }, 100); // slight delay to ensure DOM is ready
     }
 
     // Check if scrollToConttact is true in URL parram
-    if (params.get("scrollToContact") === "true") {
+    if (params.get("contact") === "true") {
       setTimeout(() => {
         const contactElem = document.getElementById("contact");
         const navbarHeight = 120; // To match Navbar offset

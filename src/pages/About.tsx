@@ -19,7 +19,7 @@ const About = () => {
         >
           About Me
         </h2>
-        <div className="grid md:grid-cols-2 gap-12 items-center bg-white/80 dark:bg-gray-800 rounded-3xl shadow-lg p-8">
+        <div className="grid md:grid-cols-2 gap-12 items-center justify-center bg-white/80 dark:bg-gray-800 rounded-3xl shadow-lg p-8">
           <div className="space-y-6 text-2xl md:text-3xl text-gray-500 dark:text-gray-200">
             <motion.p
               className="text-lg leading-relaxed"
@@ -56,7 +56,7 @@ const About = () => {
                 role="img"
                 aria-label="Code icon representing programming skills"
               >
-                <IoCode size={110} className="text-gray-400" />
+                <IoCode size={110} className="text-blue-300" />
               </div>
             </div>
           </div>

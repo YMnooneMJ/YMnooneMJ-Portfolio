@@ -7,7 +7,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 const contactMethods = [
   {
     label: "Email",
-    value: "ademolayusuf1349@gmail.com",
+    value: "demraldo@gmail.com",
     icon: <IoMdMailUnread className="text-blue-400" size={28} />,
     action: "mailto:ademolayusuf1349@gmail.com",
     actionLabel: "Message",
@@ -87,7 +87,7 @@ const Contact = () => {
             {contactMethods.map((method) => (
               <div
                 key={method.label}
-                className={`flex items-center justify-between rounded-2xl px-6 py-5 ${method.bg} border ${method.border} shadow-lg transition-all`}
+                className={`flex items-center justify-between rounded-2xl px-6 py-5 ${method.bg} border ${method.border} shadow-lg transition-all overflow-hidden`}
                 style={{
                   backdropFilter: "blur(12px)",
                 }}

@@ -45,7 +45,7 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
         {/* Mobile: Hire Me & Menu Button */}
         <div className="flex md:hidden items-center absolute right-2 top-1/2 -translate-y-1/2 z-20 gap-2">
           <Link
-            to={{ pathname: "/", search: "?scrollToContact=true" }}
+            to={{ pathname: "/", search: "?contactontact=true" }}
             className="flex items-center gap-2 bg-gray-900 hover:bg-blue-600 text-white font-bold px-3 py-2 rounded-2xl shadow transition-all"
           >
             Hire Me <FiExternalLink className="w-5 h-5 select-none" />
@@ -110,7 +110,7 @@ const Navbar = ({ darkMode, toggleDarkMode, activeSection }: NavbarProps) => {
           </div>
           {/* Desktop Hire Me */}
           <Link
-            to={{ pathname: "/", search: "?scrollToContact=true" }}
+            to={{ pathname: "/", search: "?contact=true" }}
             className="hidden md:flex items-center gap-2 bg-gray-900 hover:bg-blue-600 text-white font-bold text-lg px-5 py-2 rounded-xl shadow transition-all"
           >
             Hire Me <FiExternalLink className="w-5 h-5 select-none" />
