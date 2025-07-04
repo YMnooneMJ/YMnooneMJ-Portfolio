@@ -17,7 +17,7 @@ const App = () => {
           : "bg-white text-gray-900 min-h-screen relative"
       }
     >
-      <ScrollToTop />
+      <ScrollToTo />
       <FloatingParticles />
       <div className="fixed inset-0 pointer-events-none z-10 bg-gradient-to-b from-transparent via-white/40 to-white/60 dark:via-gray-900/40 dark:to-gray-950/60"></div>
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
