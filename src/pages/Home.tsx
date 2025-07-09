@@ -145,15 +145,15 @@ const Home = () => {
               />
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-950 dark:text-gray-400">
+          <p className="text-xl md:text-2xl text-gray-950 dark:text-gray-500">
             Full Stack Developer & Software Engineer
           </p>
-          <p className="text-lg text-gray-950 dark:text-gray-400">
+          <p className="text-lg text-gray-950 dark:text-gray-500">
             A passionate Fullstack Dev building reliable, interactive and
             responsive web applications with React, Next.js, Tailwind CSS,
             Express, and more.
           </p>
-          <p className="text-md text-gray-950 dark:text-gray-400">
+          <p className="text-md text-gray-950 dark:text-gray-500">
             Welcome to my portfolio — explore my projects and feel free to get
             in touch!
           </p>
