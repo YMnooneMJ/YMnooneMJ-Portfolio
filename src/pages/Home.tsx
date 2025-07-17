@@ -173,7 +173,7 @@ const Home = () => {
           </div>
           <div className="flex justify-center mt-2">
             <a
-              href="https://docs.google.com/document/d/1yiOZdgYXir7YTMWe3WEhQwGW9DgqHyAtOf-OqJrijiI/view?usp=sharing"
+              href="https://docs.google.com/document/d/1Ep6uoUr0jCjImF7xzithvdUaISGNNe9idx2C636IDoY/view?usp=sharingview?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-all font-semibold text-blue-600 dark:text-blue-400"
