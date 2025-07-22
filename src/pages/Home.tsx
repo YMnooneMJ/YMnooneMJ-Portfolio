@@ -10,13 +10,8 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 import { useLocation } from "react-router-dom";
 
-const handleType = (count: number) => {
-  console.log(count);
-};
-
-const handleDone = () => {
-  console.log(`Done after 5 loops!`);
-};
+const handleType = (count: number) => console.log(count);
+const handleDone = () => console.log("Done after 5 loops!");
 
 const sectionList = [
   { id: "about", label: "About" },
@@ -27,6 +22,7 @@ const sectionList = [
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState("hero");
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,48 +45,29 @@ const Home = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const location = useLocation();
-
-  // Scroll to hero section if scrollToHero is true in URL params
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    if (params.get("scrollToHero") === "true") {
-      setTimeout(() => {
-        const heroElem = document.getElementById("hero");
-        const navbarHeight = 120; // To match Navbar offset
-        if (heroElem) {
-          const elementPosition =
-            heroElem.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition - navbarHeight;
-          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-        }
-        // Remove scrollToContact from URL after scrolling
-        const url = new URL(window.location.href);
-        url.searchParams.delete("scrollToContact");
-        window.history.replaceState(
-          {},
-          document.title,
-          url.pathname + url.search
-        );
-      }, 100); // slight delay to ensure DOM is ready
-    }
 
-    // Check if scrollToConttact is true in URL parram
+    const scrollTo = (id: string) => {
+      const element = document.getElementById(id);
+      const navbarHeight = 100;
+      if (element) {
+        const yOffset = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: yOffset - navbarHeight,
+          behavior: "smooth",
+        });
+      }
+    };
+
+    if (params.get("scrollToHero") === "true") {
+      setTimeout(() => scrollTo("hero"), 100);
+    }
     if (params.get("contact") === "true") {
-      setTimeout(() => {
-        const contactElem = document.getElementById("contact");
-        const navbarHeight = 120; // To match Navbar offset
-        if (contactElem) {
-          const elementPosition =
-            contactElem.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition - navbarHeight;
-          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-        }
-      }, 100); // slight delay to ensure DOM is ready
+      setTimeout(() => scrollTo("contact"), 100);
     }
   }, [location.search]);
 
-  // Section wrapper with highlight for active
   const Section = ({
     id,
     title,
@@ -102,26 +79,26 @@ const Home = () => {
   }) => (
     <section
       id={id}
-      className={`
-        ${
-          activeSection === id
-            ? "ring-4 ring-blue-400/40 dark:ring-blue-600/40 scale-[1.03]"
-            : "ring-0"
-        }
-      `}
+      className={`px-4 sm:px-8 py-12 w-full transition-all duration-300 ${
+        activeSection === id
+          ? "ring-4 ring-blue-400/40 dark:ring-blue-600/40 scale-[1.03]"
+          : "ring-0"
+      }`}
       style={{ scrollMarginTop: 120 }}
     >
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 text-center">
-        {title}
-      </h2>
+      {title && (
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 text-center">
+          {title}
+        </h2>
+      )}
       {children}
     </section>
   );
 
   return (
-    <div id="home" className="min-h-screen ">
-      {/* HERO SECTION */}
-      <div id="hero" className="py-12">
+    <div id="home" className="min-h-screen w-full overflow-x-hidden">
+      {/* HERO */}
+      <div id="hero" className="py-16 px-4 sm:px-8">
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -129,7 +106,7 @@ const Home = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="space-y-6 max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
             Hi <span className="text-white/90">👋</span>, I'm{" "}
             <span className="text-blue-800 font-bold">
               <Typewriter
@@ -145,18 +122,21 @@ const Home = () => {
               />
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-950 dark:text-gray-500">
+
+          <p className="text-lg sm:text-xl text-gray-950 dark:text-gray-400">
             Full Stack Developer & Software Engineer
           </p>
-          <p className="text-lg text-gray-950 dark:text-gray-500">
-            A passionate Fullstack Dev building reliable, interactive and
-            responsive web applications with React, Next.js, Tailwind CSS,
-            Express, and more.
+
+          <p className="text-md text-gray-950 dark:text-gray-400">
+            I build reliable, interactive and responsive web applications with
+            React, Next.js, Tailwind CSS, Express, and more.
           </p>
-          <p className="text-md text-gray-950 dark:text-gray-500">
+
+          <p className="text-sm text-gray-800 dark:text-gray-500">
             Welcome to my portfolio — explore my projects and feel free to get
             in touch!
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={() => scrollToSection("projects")}
@@ -171,69 +151,66 @@ const Home = () => {
               Get In Touch
             </button>
           </div>
-          <div className="flex justify-center mt-2">
+
+          <div className="flex justify-center">
             <a
-              href="https://docs.google.com/document/d/1Ep6uoUr0jCjImF7xzithvdUaISGNNe9idx2C636IDoY/view?usp=sharingview?usp=sharing"
+              href="https://docs.google.com/document/d/1Ep6uoUr0jCjImF7xzithvdUaISGNNe9idx2C636IDoY/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-all font-semibold text-blue-600 dark:text-blue-400"
+              className="px-8 py-3 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-all font-semibold text-blue-600 dark:text-blue-400 mt-4"
             >
               See My Resume
             </a>
           </div>
+
           <div className="flex justify-center space-x-6 pt-8">
-            <a
-              href="https://github.com/YMnooneMJ"
-              className="p-3 rounded-full  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
-            >
-              <FaGithub size={24} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/ademola-adeyemo-ba13b7348/"
-              className="p-3 rounded-full  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
-            >
-              <FaLinkedin size={24} />
-            </a>
-            <a
-              href="https://x.com/YMnooneMJ"
-              className="p-3 rounded-full  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
-            >
-              <FaXTwitter size={24} />
-            </a>
-            <a
-              href="mailto:ademolayusuf1349@gmail.com"
-              className="p-3 rounded-full  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
-            >
-              <MdEmail size={24} />
-            </a>
+            {[{
+              icon: <FaGithub size={24} />,
+              href: "https://github.com/YMnooneMJ"
+            }, {
+              icon: <FaLinkedin size={24} />,
+              href: "https://www.linkedin.com/in/ademola-adeyemo-ba13b7348/"
+            }, {
+              icon: <FaXTwitter size={24} />,
+              href: "https://x.com/YMnooneMJ"
+            }, {
+              icon: <MdEmail size={24} />,
+              href: "mailto:ademolayusuf1349@gmail.com"
+            }].map((item, i) => (
+              <a
+                key={i}
+                href={item.href}
+                className="p-3 rounded-full hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors shadow"
+              >
+                {item.icon}
+              </a>
+            ))}
           </div>
+
           <div className="flex justify-center">
-            <div className="animate-bounce flex items-center justify-center">
+            <div className="animate-bounce">
               <FaChevronDown
                 size={32}
-                className="text-gray-900 dark:text-gray-300 "
+                className="text-gray-900 dark:text-gray-300 mt-4"
               />
             </div>
           </div>
         </motion.section>
       </div>
 
-      {/* ABOUT SECTION */}
+      {/* CONTENT SECTIONS */}
       <Section id="about" title="">
         <About />
       </Section>
 
-      {/* SKILLS SECTION */}
       <Section id="skills" title="">
         <Skills />
       </Section>
 
-      {/* PROJECTS SECTION */}
       <Section id="projects" title="">
         <Projects />
       </Section>
 
-      {/* CONTACT SECTION */}
       <Section id="contact" title="">
         <Contact />
       </Section>
