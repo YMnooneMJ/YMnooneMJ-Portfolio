@@ -30,7 +30,7 @@ const skills = [
   },
   {
     category: "Database",
-    items: ["MongoDB", "PostgreSQL", "MySQL",],
+    items: ["MongoDB (NoSQL)", "PostgreSQL", "MySQL",],
     icon: FaDatabase,
   },
 ];

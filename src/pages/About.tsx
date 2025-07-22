@@ -28,15 +28,17 @@ const About = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              I had intended to play professional football, but 🥱 life had
-              other plans. These days, I’m a{" "}
+              I was supposed to be lifting trophies as a professional
+              footballer, but...🥱. These days, I'm a{" "}
               <span className="font-semibold text-blue-300">
-                passionate full-stack developer
-              </span>{" "}
-              with 2 years of experience building web applications that solve
-              real-world problems. I enjoy working with modern technologies and
-              constantly explore new frameworks and tools to grow and improve.
+                full-stack developer with way more stamina for coding than
+                cardio
+              </span>
+              . With 2 years of experience building web apps that actually solve
+              problems, I'm always diving into new frameworks, tools, and the
+              occasional caffeine overdose.
             </motion.p>
+
             <div className="flex flex-wrap gap-3 pt-2">
               <span className="px-4 py-2 bg-green-100 dark:bg-green-700 text-green-700 dark:text-green-200 rounded-full border border-green-200 dark:border-green-800 text-sm font-semibold shadow-sm">
                 Problem Solver

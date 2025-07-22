@@ -96,7 +96,7 @@ const Home = () => {
   );
 
   return (
-    <div id="home" className="min-h-screen w-full overflow-x-hidden">
+    <div id="home" className="min-h-screen w-full">
       {/* HERO */}
       <div id="hero" className="py-16 px-4 sm:px-8">
         <motion.section
